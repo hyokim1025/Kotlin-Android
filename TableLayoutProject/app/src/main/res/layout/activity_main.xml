@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:shrinkColumns="1"
+    android:stretchColumns="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TableLayout 실습"
+        android:textColor="#62852E"
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
+
+    <TableRow android:layout_marginTop="24dp">
+
+        <EditText
+            android:id="@+id/turtle_count"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg"
+            android:contentDescription="거북이 개수 입력"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="#212121"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:contentDescription="거북이 그림"
+            android:scaleType="fitStart"
+            android:src="@drawable/turtle" />
+
+    </TableRow>
+
+    <TableRow android:layout_marginTop="12dp">
+
+        <EditText
+            android:id="@+id/fish_count"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg"
+            android:contentDescription="물고기 개수 입력"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="#212121"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:contentDescription="물고기 그림"
+            android:scaleType="fitStart"
+            android:src="@drawable/fish" />
+
+    </TableRow>
+
+    <Button
+        android:id="@+id/result_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#007A8C"
+        android:text="결과보기"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</TableLayout>

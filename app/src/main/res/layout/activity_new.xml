@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/book_list_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="도서목록" />
+
+        <Button
+            android:id="@+id/my_page_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="나의페이지" />
+
+        <Button
+            android:id="@+id/ebook_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-Book" />
+
+        <Button
+            android:id="@+id/market_info_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="마켓정보" />
+
+        <Button
+            android:id="@+id/customer_service_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="고객센터" />
+
+    </LinearLayout>
+</ScrollView>
