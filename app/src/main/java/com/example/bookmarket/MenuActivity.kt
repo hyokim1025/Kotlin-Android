@@ -44,8 +44,12 @@ class MenuActivity : AppCompatActivity() {
         }
 
         navigation.setNavigationItemSelectedListener { item ->
-            showMessage(item.title)
             drawer.closeDrawer(GravityCompat.START)
+            if (item.itemId == R.id.menu03) {
+                startActivity(Intent(this, MyPageActivity::class.java))
+            } else {
+                showMessage(item.title)
+            }
             true
         }
 
@@ -66,7 +70,9 @@ class MenuActivity : AppCompatActivity() {
 
     fun onEBookClick(view: View) = showMessage("E-Book")
     fun onCustomerInquiryClick(view: View) = showMessage("고객문의")
-    fun onMyPageClick(view: View) = showMessage("나의페이지")
+    fun onMyPageClick(view: View) {
+        startActivity(Intent(this, MyPageActivity::class.java))
+    }
     fun onMarketInfoClick(view: View) = showMessage("마켓정보")
     fun onSettingClick(view: View) = showMessage("설정")
 

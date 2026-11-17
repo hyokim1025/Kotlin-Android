@@ -33,6 +33,11 @@
         <activity android:name=".CartActivity" android:exported="false" />
         <activity android:name=".ShippingActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".OrderActivity" android:exported="false" />
+        <activity android:name=".MyPageActivity" android:exported="false" />
+        <activity
+            android:name=".MemoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

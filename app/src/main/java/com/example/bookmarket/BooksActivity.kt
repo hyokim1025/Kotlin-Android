@@ -70,7 +70,11 @@ class BooksActivity : AppCompatActivity() {
                 )
                 true
             }
-            R.id.main_video, R.id.menu_customer, R.id.menu_mypage -> {
+            R.id.menu_mypage -> {
+                startActivity(Intent(this, MyPageActivity::class.java))
+                true
+            }
+            R.id.main_video, R.id.menu_customer -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
                 true
             }
