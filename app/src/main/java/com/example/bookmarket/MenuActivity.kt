@@ -1,6 +1,8 @@
 package com.example.bookmarket
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +18,10 @@ class MenuActivity : AppCompatActivity() {
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(bars.left, bars.top, bars.right, bars.bottom)
             insets
+        }
+
+        findViewById<View>(R.id.book_list_button).setOnClickListener {
+            startActivity(Intent(this, BooksActivity::class.java))
         }
     }
 }
