@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,31 +18,6 @@ class BookActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_BOOK_INDEX = "book_index"
     }
-
-    private data class Book(
-        val id: String,
-        val title: String,
-        val price: String,
-        val date: String,
-        val author: String,
-        val description: String,
-        val coverRes: Int
-    )
-
-    private val books = listOf(
-        Book("BOOK1234", "쉽게 배우는 알고리즘", "22,000원", "2024-01-03", "문병로",
-            "자료구조와 알고리즘을 바탕으로 문제를 체계적으로 해결하는 방법을 배웁니다.",
-            R.drawable.books_book1),
-        Book("BOOK1235", "난생 처음 MySQL", "34,000원", "2024-01-17", "배은영",
-            "무역회사 데이터베이스를 활용한 예제로 SQL과 쿼리 작성을 실습합니다.",
-            R.drawable.books_book2),
-        Book("BOOK1236", "쉽게 배우는 PHP 웹 프로그래밍", "30,000원", "2024-06-30", "송미영",
-            "PHP 기초를 익히고 북마켓 쇼핑몰을 단계별로 만들어 봅니다.",
-            R.drawable.books_book3),
-        Book("BOOK1237", "미라클 HTML5 + CSS3 + 자바스크립트", "28,000원", "2024-07-11", "조성호",
-            "다양한 예제를 따라 하며 웹 페이지의 구조와 스타일, 동작을 익힙니다.",
-            R.drawable.books_book4)
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,11 +46,23 @@ class BookActivity : AppCompatActivity() {
         }
         findViewById<TextView>(R.id.book_tv01).text = book.id
         findViewById<TextView>(R.id.book_tv02).text = book.title
-        findViewById<TextView>(R.id.book_tv03).text = book.price
+        findViewById<TextView>(R.id.book_tv03).text = won(book.price.toLong())
         findViewById<TextView>(R.id.book_tv04).text = book.date
         findViewById<TextView>(R.id.book_tv05).text = book.author
         findViewById<TextView>(R.id.book_tv06).text = book.description
         findViewById<TextView>(R.id.book_tv07).text = "IT/모바일"
+
+        findViewById<Button>(R.id.book_add_to_cart).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("장바구니 담기")
+                .setMessage("이 도서를 장바구니에 담을까요?")
+                .setNegativeButton("취소", null)
+                .setPositiveButton("확인") { _, _ ->
+                    CartStore(this).add(book.id)
+                    Toast.makeText(this, "장바구니에 담았습니다", Toast.LENGTH_SHORT).show()
+                }
+                .show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -101,7 +90,7 @@ class BookActivity : AppCompatActivity() {
                 true
             }
             R.id.menu_cart -> {
-                Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, CartActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -30,6 +30,9 @@
         <activity
             android:name=".BookActivity"
             android:exported="false" />
+        <activity android:name=".CartActivity" android:exported="false" />
+        <activity android:name=".ShippingActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".OrderActivity" android:exported="false" />
     </application>
 
 </manifest>
