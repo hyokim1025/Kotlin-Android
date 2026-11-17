@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MenuActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#338C8D"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="#FFFFFF" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="12dp">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        app:srcCompat="@drawable/menu_logo" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:onClick="onBannerClick"
+                            app:srcCompat="@drawable/menu_banner1" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="40dp"
+                            app:srcCompat="@drawable/menu_text" />
+                    </FrameLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:srcCompat="@drawable/menu_title" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButton1"
+                                android:contentDescription="도서목록"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+                                android:background="@android:color/transparent"
+                                android:onClick="onBookListClick"
+                                app:srcCompat="@drawable/menu_menu1" />
+
+                            <ImageButton
+                                android:id="@+id/imageButton2"
+                                android:contentDescription="E-Book"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+                                android:background="#00FFFFFF"
+                                android:onClick="onEBookClick"
+                                app:srcCompat="@drawable/menu_menu2" />
+
+                            <ImageButton
+                                android:id="@+id/imageButton3"
+                                android:contentDescription="고객문의"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+                                android:background="#00FFFFFF"
+                                android:onClick="onCustomerInquiryClick"
+                                app:srcCompat="@drawable/menu_menu3" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_horizontal">
+
+                            <ImageButton
+                                android:id="@+id/imageButton4"
+                                android:contentDescription="나의페이지"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+                                android:background="#00FFFFFF"
+
+                                android:onClick="onMyPageClick"
+                                app:srcCompat="@drawable/menu_menu4" />
+
+                            <ImageButton
+                                android:id="@+id/imageButton5"
+                                android:contentDescription="마켓정보"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+
+                                android:background="#00FFFFFF"
+                                android:onClick="onMarketInfoClick"
+                                app:srcCompat="@drawable/menu_menu5" />
+
+                            <ImageButton
+                                android:id="@+id/imageButton6"
+                                android:contentDescription="설정"
+                                android:layout_width="82dp"
+                                android:layout_height="82dp"
+                                android:layout_margin="10dp"
+                                android:background="#00FFFFFF"
+                                android:onClick="onSettingClick"
+                                app:srcCompat="@drawable/menu_menu6" />
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_bottom" />
+        </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:visibility="visible"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/menu_navi">
+
+        </com.google.android.material.navigation.NavigationView>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>
