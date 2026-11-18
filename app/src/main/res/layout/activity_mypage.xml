@@ -16,13 +16,34 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextColor="#FFFFFF" />
 
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+    <FrameLayout
+        android:layout_width="126dp"
+        android:layout_height="126dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:contentDescription="프로필 이미지"
-        android:src="@drawable/mypage_user" />
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="top|start"
+            android:background="@drawable/profile_avatar_background"
+            android:clipToOutline="true"
+            android:contentDescription="프로필 이미지"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mypage_user" />
+
+        <ImageButton
+            android:id="@+id/profile_edit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="프로필 사진 설정"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mypage_modify" />
+    </FrameLayout>
 
     <TextView
         android:layout_width="wrap_content"
